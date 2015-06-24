@@ -1,0 +1,78 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://luxoft-interview-german-clock.appspot.com/_ah/api",
+  "name" : "helloworld",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://luxoft-interview-german-clock.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "helloworld.greetings.getGermanTime" : {
+      "path" : "germantime",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ "232037506227-vq367u2c1nc5bbbpjncevqko6hs4m9v2.apps.googleusercontent.com" ],
+      "clientIds" : [ "232037506227-vq367u2c1nc5bbbpjncevqko6hs4m9v2.apps.googleusercontent.com", "AIzaSyD43KlNxfI0A-A75ODtkKAZsivKEuTQUeY", "AIzaSyA0wnZYUlSbl2MvgcnRkB-ZvQH9U9vTix4", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "net.interview.Greetings.getGermanTime",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "GermanTime" : {
+        "id" : "GermanTime",
+        "type" : "object",
+        "properties" : {
+          "fiveHours" : {
+            "type" : "integer"
+          },
+          "singleHours" : {
+            "type" : "integer"
+          },
+          "fiveMinutes" : {
+            "type" : "integer"
+          },
+          "singleMinutes" : {
+            "type" : "integer"
+          },
+          "seconds" : {
+            "type" : "integer"
+          },
+          "time" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "net.interview.Greetings.getGermanTime" : {
+        "response" : {
+          "$ref" : "GermanTime"
+        }
+      }
+    }
+  }
+}
